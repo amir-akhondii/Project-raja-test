@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+<title>پنل مدیریت | نوین‌شاپ</title>
+<link rel="stylesheet" href="css/admin.css?v=8" />
+<link rel="stylesheet" href="css/auth.css?v=8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<!-- Login -->
+<div class="login-wrap" id="loginWrap">
+  <div class="auth-card">
+    <div class="auth-side">
+      <span class="logo-icon"><i class="fa-solid fa-user-gear"></i></span>
+      <h2>پنل مدیریت نوین‌شاپ</h2>
+      <p>محصولات، سفارش‌ها و مشتریان — همه در یک نگاه.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> داشبورد فروش و آمار لحظه‌ای</li>
+        <li><i class="fa-solid fa-check"></i> افزودن و ویرایش محصول</li>
+        <li><i class="fa-solid fa-check"></i> پیگیری سفارش و مشتری</li>
+      </ul>
+      <div class="auth-demo">مدیر: <b>admin / 1234</b><br>حساب مشتری از <a href="account.html">پنل مشتری</a> وارد شود</div>
+    </div>
+    <form class="auth-form" id="loginForm">
+      <h2>ورود مدیر</h2>
+      <p class="muted">خوش برگشتی! برای ادامه وارد شو.</p>
+      <p class="auth-err" id="loginErr"></p>
+      <div class="field"><i class="fa-regular fa-user"></i><input id="u" placeholder="نام کاربری" value="admin" required /></div>
+      <div class="field"><i class="fa-solid fa-lock"></i><input id="p" type="password" placeholder="رمز عبور" value="1234" required /><button type="button" class="pass-toggle" data-for="p" aria-label="نمایش رمز"><i class="fa-regular fa-eye"></i></button></div>
+      <button class="btn" type="submit">ورود به پنل <i class="fa-solid fa-arrow-left"></i></button>
+      <a class="auth-back" href="index.html">→ بازگشت به فروشگاه</a>
+    </form>
+  </div>
+</div>
+
+<div class="admin" id="adminApp" style="display:none">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="index.html" class="logo"><span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span> نوین‌شاپ <small>مدیریت</small></a>
+    <nav>
+      <button class="active" data-tab="dash"><i class="fa-solid fa-gauge"></i> داشبورد</button>
+      <button data-tab="products"><i class="fa-solid fa-box"></i> محصولات <span class="count" id="navPCount"></span></button>
+      <button data-tab="orders"><i class="fa-solid fa-receipt"></i> سفارش‌ها <span class="count" id="navOCount"></span></button>
+      <button data-tab="customers"><i class="fa-solid fa-users"></i> مشتریان <span class="count" id="navCCount"></span></button>
+      <button id="resetBtn"><i class="fa-solid fa-rotate-left"></i> ریست دمو</button>
+      <a href="index.html"><i class="fa-solid fa-store"></i> مشاهده فروشگاه</a>
+      <button id="logoutBtn" class="red"><i class="fa-solid fa-right-from-bracket"></i> خروج</button>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="sideBtn"><i class="fa-solid fa-bars"></i></button>
+      <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="globalSearch" placeholder="جستجو محصول یا سفارش..." /></div>
+      <div class="profile"><span id="todayDate"></span><b id="adminName">مدیر فروشگاه</b></div>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="page active" id="page-dash">
+      <h2>داشبورد</h2>
+      <div class="stats">
+        <div class="stat s1"><i class="fa-solid fa-boxes-stacked"></i><div><span>محصولات</span><strong id="stProducts">0</strong></div></div>
+        <div class="stat s2"><i class="fa-solid fa-receipt"></i><div><span>سفارش‌ها</span><strong id="stOrders">0</strong></div></div>
+        <div class="stat s3"><i class="fa-solid fa-money-bill-wave"></i><div><span>درآمد (تومان)</span><strong id="stIncome">0</strong></div></div>
+        <div class="stat s4"><i class="fa-solid fa-cart-shopping"></i><div><span>کالاهای فروخته‌شده</span><strong id="stSold">0</strong></div></div>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>سفارش‌های اخیر</h3>
+          <div class="table-wrap"><table id="recentTable"><thead><tr><th>کد</th><th>مشتری</th><th>مبلغ</th><th>وضعیت</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="card">
+          <h3>پرفروش‌ترین‌ها</h3>
+          <div id="topBars"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="page" id="page-products">
+      <div class="page-head"><h2>محصولات</h2><button class="btn" id="addBtn"><i class="fa-solid fa-plus"></i> محصول جدید</button></div>
+      <div class="table-wrap card"><table id="prodTable">
+        <thead><tr><th>محصول</th><th>دسته</th><th>قیمت</th><th>موجودی</th><th>فروش</th><th>عملیات</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+
+    <!-- Orders -->
+    <section class="page" id="page-orders">
+      <div class="page-head"><h2>سفارش‌ها</h2><button class="btn ghost" id="clearOrders">پاک کردن همه</button></div>
+      <div class="table-wrap card"><table id="orderTable">
+        <thead><tr><th>کد</th><th>مشتری / موبایل</th><th>اقلام</th><th>مبلغ</th><th>تاریخ</th><th>وضعیت</th><th>حذف</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    <!-- Customers -->
+    <section class="page" id="page-customers">
+      <div class="page-head"><h2>مشتریان</h2></div>
+      <div class="table-wrap card"><table id="custTable">
+        <thead><tr><th>مشتری</th><th>موبایل</th><th>سفارش‌ها</th><th>مجموع خرید</th><th>حذف</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+  </div>
+</div>
+
+<!-- Product Modal -->
+<div class="modal" id="prodModal">
+  <form class="modal-box" id="prodForm">
+    <h3 id="modalTitle">محصول جدید</h3>
+    <input type="hidden" id="fId" />
+    <label>نام محصول<input id="fName" required placeholder="مثلا هدفون پرو" /></label>
+    <div class="row">
+      <label>دسته<select id="fCat"><option value="mobile">موبایل</option><option value="audio">صوتی</option><option value="wear">پوشیدنی</option><option value="home">خانه</option></select></label>
+      <label>قیمت (تومان)<input id="fPrice" type="number" required placeholder="1500000" /></label>
+    </div>
+    <div class="row">
+      <label>قیمت قبل تخفیف<input id="fOld" type="number" placeholder="0 یعنی بدون تخفیف" /></label>
+      <label>موجودی<input id="fStock" type="number" value="10" /></label>
+    </div>
+    <label>لینک عکس<input id="fImg" placeholder="https://..." /></label>
+    <label>توضیح<textarea id="fDesc" rows="2" placeholder="توضیح کوتاه..."></textarea></label>
+    <div class="row btns"><button type="button" class="btn ghost" id="closeModal">انصراف</button><button type="submit" class="btn">ذخیره</button></div>
+  </form>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<script src="js/store.js?v=8"></script>
+<script src="js/admin.js?v=8"></script>
+</body>
+</html>

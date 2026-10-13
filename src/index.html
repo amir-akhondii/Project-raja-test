@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+<title>نوین‌شاپ | فروشگاه مدرن</title>
+<meta name="description" content="قالب فروشگاهی مدرن، ریسپانسیو با HTML CSS JS خالص" />
+<link rel="stylesheet" href="css/shop.css?v=8" />
+<link rel="stylesheet" href="css/chat.css?v=8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <p><i class="fa-solid fa-truck-fast"></i> ارسال رایگان برای خرید بالای ۵۰۰ هزار تومان</p>
+    <div class="topbar-links">
+      <a href="tel:02191009000"><i class="fa-solid fa-phone"></i> 021-91009000</a>
+      <a href="account.html">پیگیری سفارش</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <button class="icon-btn hamburger" id="hamburger" aria-label="منو"><i class="fa-solid fa-bars"></i></button>
+    <a href="#" class="logo"><span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span> نوین<span>شاپ</span></a>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="جستجو محصول، برند، دسته..." />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="header-actions">
+      <div class="user-wrap" id="userWrap">
+        <button class="icon-btn" id="userBtn" aria-label="حساب کاربری"><i class="fa-regular fa-user"></i></button>
+        <div class="user-menu" id="userMenu">
+          <div class="um-head" id="umHead"><strong>حساب کاربری</strong><small>وارد شوید یا ثبت‌نام کنید</small></div>
+          <a href="account.html"><i class="fa-regular fa-user"></i> حساب مشتری</a>
+          <a href="admin.html"><i class="fa-solid fa-user-gear"></i> پنل مدیر</a>
+          <button id="themeBtn"><i class="fa-solid fa-moon"></i> <span>حالت تیره</span></button>
+          <button id="logoutBtn" class="red" style="display:none"><i class="fa-solid fa-right-from-bracket"></i> خروج از حساب</button>
+        </div>
+      </div>
+      <button class="icon-btn badge-wrap" id="wishlistBtn" aria-label="علاقه‌مندی">
+        <i class="fa-regular fa-heart"></i><span class="badge" id="wishlistCount">0</span>
+      </button>
+      <button class="icon-btn badge-wrap cart-btn" id="cartBtn" aria-label="سبد خرید">
+        <i class="fa-solid fa-cart-shopping"></i><span class="badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="container navbar-inner">
+      <nav class="nav" id="mobileNav">
+        <div class="has-mega" id="megaWrap">
+          <a href="#categories" id="catsLink"><i class="fa-solid fa-bars-staggered"></i> دسته‌بندی‌ها <i class="fa-solid fa-chevron-down caret"></i></a>
+          <div class="mega" id="megaMenu"></div>
+        </div>
+        <a href="#home" class="active">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#offer" class="hot"><i class="fa-solid fa-bolt"></i> پیشنهاد شگفت‌انگیز</a>
+        <a href="#blog">مجله</a>
+        <a href="#faq">سوالات</a>
+      </nav>
+      <div class="nav-extra">
+        <a href="tel:02191009000"><i class="fa-solid fa-headset"></i> پشتیبانی: 021-91009000</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero container" id="home">
+  <div class="hero-text">
+    <span class="pill"><i class="fa-solid fa-fire"></i> کالکشن جدید ۱۴۰۵</span>
+    <h1>خرید مدرن،<br><span class="gradient">سریع و لذت‌بخش</span></h1>
+    <p>بیش از ۲٬۰۰۰ محصول اورجینال با ضمانت ۱۸ ماهه، ۷ روز مهلت بازگشت و ارسال اکسپرس به سراسر کشور.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-primary">مشاهده محصولات <i class="fa-solid fa-arrow-left"></i></a>
+      <a href="#offer" class="btn btn-ghost"><i class="fa-solid fa-play"></i> پیشنهاد امروز</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong data-counter="2500">0</strong><span>+ محصول</span></div>
+      <div><strong data-counter="48000">0</strong><span>+ مشتری</span></div>
+      <div><strong>4.9<i class="fa-solid fa-star"></i></strong><span>امتیاز فروشگاه</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card main-img">
+      <img src="assets/images/hero-neon.jpg" alt="دنیای تکنولوژی نوین‌شاپ" />
+      <div class="float-card fc1">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div><strong>ارسال اکسپرس</strong><span>تحویل زیر ۲۴ ساعت</span></div>
+      </div>
+      <div class="float-card fc2">
+        <img src="assets/images/mini-headphone.jpg" alt="" />
+        <div><strong>هدفون پرو</strong><span>۱٬۸۹۰٬۰۰۰ تومان</span></div>
+        <button class="mini-add" data-add="1">+</button>
+      </div>
+    </div>
+    <div class="blob"></div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="container features">
+  <div class="feature"><i class="fa-solid fa-truck-fast"></i><div><strong>ارسال سریع</strong><span>به سراسر کشور</span></div></div>
+  <div class="feature"><i class="fa-solid fa-shield-halved"></i><div><strong>ضمانت اصالت</strong><span>۱۸ ماه گارانتی</span></div></div>
+  <div class="feature"><i class="fa-solid fa-rotate-left"></i><div><strong>۷ روز بازگشت</strong><span>بدون قید و شرط</span></div></div>
+  <div class="feature"><i class="fa-solid fa-headset"></i><div><strong>پشتیبانی ۲۴/۷</strong><span>پاسخگوی شما</span></div></div>
+</section>
+
+<!-- Categories -->
+<section class="container section" id="categories">
+  <div class="section-head">
+    <div><span class="sec-tag">دسته‌بندی‌ها</span><h2>بر اساس نیازت خرید کن</h2></div>
+    <a href="#products" class="link-more">همه محصولات <i class="fa-solid fa-arrow-left"></i></a>
+  </div>
+  <div class="cats" id="cats"></div>
+</section>
+
+<!-- Offer + Timer -->
+<section class="container offer" id="offer">
+  <div class="offer-box">
+    <div class="offer-info">
+      <span class="pill pill-red"><i class="fa-solid fa-bolt"></i> فروش شگفت‌انگیز</span>
+      <h2>تا <span>۴۰٪ تخفیف</span> روی کالای دیجیتال</h2>
+      <p>فقط تا پایان امروز فرصت داری. کد <b class="code" id="copyCode">NOVIN40 <i class="fa-regular fa-copy"></i></b> را در سبد خرید وارد کن.</p>
+      <div class="timer">
+        <div><strong id="h">12</strong><span>ساعت</span></div><b>:</b>
+        <div><strong id="m">45</strong><span>دقیقه</span></div><b>:</b>
+        <div><strong id="s">30</strong><span>ثانیه</span></div>
+      </div>
+      <button class="btn btn-light" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">همین حالا بخر</button>
+    </div>
+    <div class="offer-img"><img src="assets/images/offer-tech.jpg" alt="پیشنهاد" /></div>
+  </div>
+</section>
+
+<!-- Products Toolbar -->
+<section class="container section" id="products">
+  <div class="section-head">
+    <div><span class="sec-tag">فروشگاه</span><h2>محصولات منتخب</h2></div>
+    <div class="toolbar">
+      <div class="pills" id="filterPills">
+        <button class="active" data-cat="all">همه</button>
+        <button data-cat="mobile">موبایل</button>
+        <button data-cat="audio">صوتی</button>
+        <button data-cat="wear">پوشیدنی</button>
+        <button data-cat="home">خانه</button>
+      </div>
+      <select id="sortSelect">
+        <option value="new">جدیدترین</option>
+        <option value="cheap">ارزان‌ترین</option>
+        <option value="exp">گران‌ترین</option>
+        <option value="pop">پرفروش‌ترین</option>
+      </select>
+      <span class="res" id="resCount"></span>
+    </div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+  <div class="center"><button class="btn btn-ghost" id="loadMore">نمایش بیشتر</button></div>
+</section>
+
+<!-- Banner -->
+<section class="container banners">
+  <div class="banner b1"><div><span>گیمینگ</span><h3>تجهیزات حرفه‌ای بازی</h3><a href="#products">خرید کن →</a></div><img src="assets/images/banner-gaming.jpg" alt=""/></div>
+  <div class="banner b2"><div><span>خانه هوشمند</span><h3>زندگیتو هوشمند کن</h3><a href="#products">خرید کن →</a></div><img src="assets/images/banner-smarthome.jpg" alt=""/></div>
+</section>
+
+<!-- Reviews -->
+<section class="container section">
+  <div class="section-head"><div><span class="sec-tag">نظرات</span><h2>مشتریان ما چه می‌گویند؟</h2></div></div>
+  <div class="reviews">
+    <div class="review"><div class="stars">★★★★★</div><p>«بسته‌بندی عالی بود و یک روزه به دستم رسید. قیمتش هم از همه جا بهتر بود.»</p><div class="user"><img src="assets/images/avatars/u1.jpg" alt=""/><div><strong>سارا محمدی</strong><span>خریدار هدفون</span></div></div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>«پشتیبانی واقعا ۲۴ ساعته جواب داد و بدون دردسر مرجوعی انجام شد.»</p><div class="user"><img src="assets/images/avatars/u2.jpg" alt=""/><div><strong>امیر رضایی</strong><span>خریدار ساعت هوشمند</span></div></div></div>
+    <div class="review"><div class="stars">★★★★☆</div><p>«تنوع محصولات فوق‌العاده‌ست. با کد تخفیف خیلی به‌صرفه خریدم.»</p><div class="user"><img src="assets/images/avatars/u3.jpg" alt=""/><div><strong>نگار کریمی</strong><span>خریدار اسپیکر</span></div></div></div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="container section" id="blog">
+  <div class="section-head"><div><span class="sec-tag">مجله نوین‌شاپ</span><h2>آخرین مقالات</h2></div><a href="#" class="link-more">همه مقالات</a></div>
+  <div class="blogs">
+    <article class="blog"><img src="assets/images/blog/blog-headphones.jpg" alt=""/><div><span>راهنمای خرید • ۵ دقیقه</span><h3>بهترین هدفون‌های ۱۴۰۵ برای گیم و موسیقی</h3><a href="#">ادامه مطلب</a></div></article>
+    <article class="blog"><img src="assets/images/blog/blog-smarthome.jpg" alt=""/><div><span>تکنولوژی • ۸ دقیقه</span><h3>خانه هوشمند را از کجا شروع کنیم؟</h3><a href="#">ادامه مطلب</a></div></article>
+    <article class="blog"><img src="assets/images/blog/blog-watch.jpg" alt=""/><div><span>مقایسه • ۶ دقیقه</span><h3>مقایسه ساعت‌های هوشمند پرچمدار بازار</h3><a href="#">ادامه مطلب</a></div></article>
+  </div>
+</section>
+
+<!-- FAQ + Newsletter -->
+<section class="container section grid2" id="faq">
+  <div>
+    <span class="sec-tag">سوالات پرتکرار</span><h2>هر سوالی داری اینجاست</h2>
+    <div class="accordion" id="accordion">
+      <div class="acc open"><button>شرایط بازگشت کالا چیست؟ <i class="fa-solid fa-chevron-down"></i></button><p>تا ۷ روز بدون قید و شرط می‌توانید کالا را با بسته‌بندی سالم بازگردانید و مبلغ ظرف ۴۸ ساعت عودت داده می‌شود.</p></div>
+      <div class="acc"><button>هزینه و زمان ارسال چقدر است؟ <i class="fa-solid fa-chevron-down"></i></button><p>برای خرید بالای ۵۰۰ هزار تومان ارسال رایگان است. تهران ۲۴ ساعته و شهرستان ۲ تا ۴ روز کاری.</p></div>
+      <div class="acc"><button>آیا محصولات گارانتی دارند؟ <i class="fa-solid fa-chevron-down"></i></button><p>بله، همه محصولات دارای ۱۸ ماه گارانتی شرکتی و کد رهگیری اصالت هستند.</p></div>
+      <div class="acc"><button>چطور کد تخفیف استفاده کنم؟ <i class="fa-solid fa-chevron-down"></i></button><p>در مرحله سبد خرید، کد را در فیلد تخفیف وارد کنید و دکمه اعمال را بزنید.</p></div>
+    </div>
+  </div>
+  <div class="news-box">
+    <i class="fa-solid fa-envelope-open-text"></i>
+    <h3>عضو خبرنامه شو، ۱۰٪ تخفیف بگیر</h3>
+    <p>جدیدترین محصولات و تخفیف‌ها را زودتر از همه در ایمیلت داشته باش.</p>
+    <form id="newsForm"><input type="email" placeholder="ایمیل شما..." required /><button class="btn btn-primary">عضویت</button></form>
+    <small>با عضویت، قوانین حریم خصوصی را می‌پذیرید.</small>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container foot-grid">
+    <div><a href="#" class="logo light"><span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span> نوین<span>شاپ</span></a>
+    <p>فروشگاه اینترنتی مدرن با ماموریت ارائه بهترین تجربه خرید آنلاین در ایران از سال ۱۳۹۸.</p>
+    <div class="socials"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-telegram"></i></a><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a></div></div>
+    <div><h4>دسترسی سریع</h4><a href="#products">همه محصولات</a><a href="#offer">پیشنهاد شگفت‌انگیز</a><a href="#blog">مجله</a><a href="#faq">سوالات متداول</a><a href="account.html">حساب مشتری</a><a href="admin.html">پنل مدیر</a></div>
+    <div><h4>خدمات مشتریان</h4><a href="#">پیگیری سفارش</a><a href="#">بازگشت کالا</a><a href="#">شرایط گارانتی</a><a href="#">تماس با ما</a></div>
+    <div><h4>تماس</h4><p><i class="fa-solid fa-phone"></i> 021-91009000</p><p><i class="fa-solid fa-envelope"></i> hello@novinshop.ir</p><p><i class="fa-solid fa-location-dot"></i> تهران، خیابان ولیعصر، پاساژ نور</p></div>
+  </div>
+  <div class="copy">© ۱۴۰۵ نوین‌شاپ — ساخته شده با HTML + CSS + JS خالص</div>
+</footer>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h3><i class="fa-solid fa-cart-shopping"></i> سبد خرید <span id="drawerCount"></span></h3><button class="icon-btn" id="closeCart"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="coupon"><input id="couponInput" placeholder="کد تخفیف (مثلا NOVIN40)" /><button id="couponBtn">اعمال</button></div>
+    <div class="row"><span>جمع اقلام:</span><strong id="subTotal">۰ تومان</strong></div>
+    <div class="row"><span>تخفیف:</span><strong class="red" id="discountVal">۰ تومان</strong></div>
+    <div class="row total"><span>مبلغ نهایی:</span><strong id="grandTotal">۰ تومان</strong></div>
+    <button class="btn btn-primary full" id="checkoutBtn">ادامه و پرداخت <i class="fa-solid fa-arrow-left"></i></button>
+    <button class="btn btn-ghost full" id="clearCart">خالی کردن سبد</button>
+  </div>
+</aside>
+
+<!-- Wishlist Drawer -->
+<aside class="drawer" id="wishDrawer">
+  <div class="drawer-head"><h3><i class="fa-regular fa-heart"></i> علاقه‌مندی‌ها</h3><button class="icon-btn" id="closeWish"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-items" id="wishItems"></div>
+</aside>
+
+<!-- Quick View Modal -->
+<div class="modal" id="quickModal">
+  <div class="modal-box">
+    <button class="icon-btn modal-x" id="closeQuick"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-grid">
+      <img id="qImg" src="" alt="" />
+      <div>
+        <span class="sec-tag" id="qCat"></span>
+        <h2 id="qName"></h2>
+        <div class="stars" id="qStars"></div>
+        <p id="qDesc"></p>
+        <div class="q-price"><strong id="qPrice"></strong><s id="qOld"></s></div>
+        <div class="qty"><button id="qMinus">−</button><span id="qQty">1</span><button id="qPlus">+</button></div>
+        <div class="q-actions"><button class="btn btn-primary" id="qAdd">افزودن به سبد</button><button class="icon-btn" id="qWish"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="q-meta"><span><i class="fa-solid fa-check"></i> موجود در انبار</span><span><i class="fa-solid fa-truck-fast"></i> ارسال اکسپرس</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal" id="checkModal">
+  <div class="modal-box">
+    <button class="icon-btn modal-x" id="closeCheck"><i class="fa-solid fa-xmark"></i></button>
+    <h2>تکمیل سفارش</h2>
+    <p class="muted">اطلاعات ارسال را وارد کنید (نسخه نمایشی - پرداخت واقعی انجام نمی‌شود)</p>
+    <form id="checkForm" class="check-form">
+      <input id="fName" required placeholder="نام و نام خانوادگی" />
+      <input id="fPhone" required placeholder="شماره موبایل" inputmode="numeric" />
+      <input id="fAddr" required placeholder="آدرس کامل" class="wide" />
+      <select id="fShip" class="wide"><option>تهران - ارسال اکسپرس (رایگان)</option><option>شهرستان - پست پیشتاز (۴۹٬۰۰۰)</option></select>
+      <div class="pay wide"><label><input type="radio" name="pay" checked /> درگاه بانکی</label><label><input type="radio" name="pay" /> کیف پول</label><label><input type="radio" name="pay" /> درب منزل</label></div>
+      <button class="btn btn-primary full wide" type="submit">پرداخت <span id="payAmount"></span></button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+<button class="to-top" id="toTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- چت پشتیبانی -->
+<button id="chatBtn" aria-label="گفتگو با پشتیبانی"><i class="fa-solid fa-comment-dots"></i><span class="chat-badge" id="chatBadge">۱</span></button>
+<div id="chatPanel" role="dialog" aria-label="چت پشتیبانی">
+  <div class="chat-head">
+    <span class="dot"></span>
+    <div><b>پشتیبانی نوین‌شاپ</b><small>آنلاین • معمولا زیر ۱ دقیقه جواب می‌ده</small></div>
+    <button id="chatClose" aria-label="بستن"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="chatBody"></div>
+  <div class="quick"><button type="button">کد تخفیف؟</button><button type="button">ارسال چقدره؟</button><button type="button">پیگیری سفارش</button></div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="پیامت را بنویس..." autocomplete="off" /><button aria-label="ارسال"><i class="fa-solid fa-paper-plane"></i></button></form>
+</div>
+
+<script src="js/store.js?v=8"></script>
+<script src="js/shop.js?v=8"></script>
+<script src="js/chat.js?v=8"></script>
+</body>
+</html>

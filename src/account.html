@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+<title>حساب مشتری | نوین‌شاپ تمیز</title>
+<link rel="stylesheet" href="css/base.css?v=8"><link rel="stylesheet" href="css/panel.css?v=8">
+<link rel="stylesheet" href="css/auth.css?v=8">
+</head>
+<body>
+<div class="login" id="login">
+  <div class="auth-card">
+    <div class="auth-side">
+      <span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+      <h2>حساب مشتری نوین‌شاپ</h2>
+      <p>سفارش‌ها، علاقه‌مندی‌ها و پروفایلت — همه یکجا.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> پیگیری لحظه‌ای سفارش‌ها</li>
+        <li><i class="fa-solid fa-check"></i> لیست علاقه‌مندی‌ها</li>
+        <li><i class="fa-solid fa-check"></i> تسویه سریع با آدرس ذخیره‌شده</li>
+      </ul>
+      <div class="auth-demo">مشتری: <b>user / 1234</b><br>مدیریت فروشگاه از <a href="admin.html">پنل مدیر</a></div>
+    </div>
+    <div class="auth-form">
+      <h2 id="authTitle">ورود به حساب</h2>
+      <div class="auth-tabs"><button class="active" id="tabLogin" type="button">ورود</button><button id="tabReg" type="button">ثبت‌نام</button></div>
+      <p class="auth-err" id="loginErr"></p>
+      <form id="f" class="form">
+        <div class="field"><i class="fa-regular fa-user"></i><input id="u" placeholder="نام کاربری" value="user" required /></div>
+        <div class="field"><i class="fa-solid fa-lock"></i><input id="p" type="password" placeholder="رمز عبور" value="1234" required /><button type="button" class="pass-toggle" data-for="p" aria-label="نمایش رمز"><i class="fa-regular fa-eye"></i></button></div>
+        <button class="btn" type="submit">ورود <i class="fa-solid fa-arrow-left"></i></button>
+      </form>
+      <form id="r" class="form" style="display:none">
+        <div class="field"><i class="fa-regular fa-id-card"></i><input id="rn" required placeholder="نام و نام خانوادگی" /></div>
+        <div class="field"><i class="fa-regular fa-user"></i><input id="ru" required placeholder="نام کاربری (انگلیسی)" /></div>
+        <div class="field"><i class="fa-solid fa-lock"></i><input id="rp" type="password" required placeholder="رمز عبور" /><button type="button" class="pass-toggle" data-for="rp" aria-label="نمایش رمز"><i class="fa-regular fa-eye"></i></button></div>
+        <button class="btn" type="submit">ساخت حساب <i class="fa-solid fa-arrow-left"></i></button>
+      </form>
+      <a class="auth-back" href="index.html">→ بازگشت به فروشگاه</a>
+    </div>
+  </div>
+</div>
+
+<div class="layout" id="app" style="display:none">
+  <aside class="side" id="side">
+    <a class="logo" href="index.html"><i>🛍</i>نوین‌شاپ</a>
+    <nav>
+      <button class="on" data-t="home">👋 پیشخوان</button>
+      <button data-t="orders">🧾 سفارش‌ها <span class="n" id="nO"></span></button>
+      <button data-t="wish">❤️ علاقه‌مندی‌ها <span class="n" id="nW"></span></button>
+      <button data-t="profile">👤 پروفایل</button>
+      <a href="index.html">🏪 فروشگاه</a>
+      <button id="out">🚪 خروج</button>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="top"><button class="icon" id="sideBtn" style="display:none">☰</button><b id="hello">سلام</b><span class="who" id="who"></span></div>
+
+    <section class="page on" id="pg-home">
+      <div class="stats">
+        <div class="stat"><div><span>سفارش‌ها</span><b id="sO">۰</b></div></div>
+        <div class="stat"><div><span>مجموع خرید</span><b id="sM">۰</b></div></div>
+        <div class="stat"><div><span>علاقه‌مندی‌ها</span><b id="sW">۰</b></div></div>
+        <div class="stat"><div><span>سبد فعلی</span><b id="sC">۰</b></div></div>
+      </div>
+      <div class="card"><h3>آخرین سفارش</h3><div id="lastBox"></div>
+        <p><a class="btn" href="index.html">ادامه خرید در فروشگاه</a></p></div>
+    </section>
+
+    <section class="page" id="pg-orders">
+      <div class="tbl"><table id="ot"><thead><tr><th>کد</th><th>اقلام</th><th>مبلغ</th><th>وضعیت</th><th>تاریخ</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="page" id="pg-wish">
+      <div class="wgrid" id="wishGrid"></div>
+    </section>
+
+    <section class="page" id="pg-profile">
+      <form class="card form" id="profForm">
+        <h3>پروفایل من</h3>
+        <label>نام و نام خانوادگی<input id="fName" /></label>
+        <label>موبایل<input id="fPhone" /></label>
+        <label>آدرس<input id="fAddr" /></label>
+        <label>رمز جدید (خالی = بدون تغییر)<input id="fPass" type="password" /></label>
+        <button class="btn">ذخیره تغییرات</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+<script src="js/store.js?v=8"></script>
+<script src="js/account.js?v=8"></script>
+</body></html>

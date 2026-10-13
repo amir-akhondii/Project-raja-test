@@ -1,0 +1,38 @@
+/* auth.css — لاگین تمیز و مدرن مدیر و مشتری (روی admin.css / base.css سوار می‌شود) */
+.login-wrap, .login{min-height:100dvh;display:grid;place-items:center;padding:1.5rem 1rem;position:relative;overflow:hidden;
+  background:radial-gradient(600px 400px at 85% 15%,rgba(157,107,255,.35),transparent 60%),radial-gradient(500px 380px at 10% 90%,rgba(0,223,162,.22),transparent 60%),linear-gradient(135deg,#14114a,#5b4df6)}
+.login-wrap::before, .login::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.07);top:-110px;left:-110px}
+.login-wrap::after, .login::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-80px;right:-70px}
+.auth-card{width:min(880px,100%);background:var(--card);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;box-shadow:0 30px 80px rgba(10,8,50,.45);position:relative;z-index:1}
+.auth-side{background:linear-gradient(165deg,#4a3df0,#7c5cff 55%,#00c9a0 135%);color:#fff;padding:2.4rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
+.auth-side h2{font-size:1.45rem;font-weight:800}
+.auth-side>p{opacity:.9;font-size:.92rem}
+.auth-side ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;font-size:.88rem;margin:.4rem 0}
+.auth-side li{display:flex;align-items:center;gap:.55rem}
+.auth-side li i{background:rgba(255,255,255,.2);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:.72rem;flex-shrink:0}
+.auth-demo{background:rgba(255,255,255,.14);border:1px dashed rgba(255,255,255,.55);border-radius:14px;padding:.65rem .95rem;font-size:.83rem;line-height:2}
+.auth-demo a{color:#fff;font-weight:800;text-decoration:underline}
+.auth-form{padding:2.2rem 2rem;display:flex;flex-direction:column;gap:.75rem}
+.auth-form h2{font-size:1.3rem;font-weight:800}
+.auth-form .muted{color:var(--muted);font-size:.88rem}
+.auth-err{display:none;background:#ffe7ec;color:#c22040;border:1px solid #ffc9d4;border-radius:12px;padding:.6rem .9rem;font-size:.85rem;font-weight:700}
+.auth-err.show{display:block;animation:shake .3s}
+@keyframes shake{25%{transform:translateX(5px)}50%{transform:translateX(-5px)}75%{transform:translateX(3px)}}
+.field{position:relative}
+.field>i{position:absolute;top:50%;right:.9rem;transform:translateY(-50%);color:var(--muted);font-size:.95rem}
+.field input{width:100%;padding:.8rem .9rem .8rem 2.6rem;padding-right:2.6rem;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.95rem;background:var(--bg);color:var(--text);outline:0;transition:.2s}
+.field input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(91,77,246,.14);background:var(--card)}
+.pass-toggle{position:absolute;top:50%;left:.6rem;transform:translateY(-50%);border:0;background:none;color:var(--muted);cursor:pointer;font-size:1rem;padding:.3rem}
+.pass-toggle:hover{color:var(--primary)}
+.auth-form .btn{width:100%;justify-content:center;padding:.85rem;font-size:1rem}
+.auth-back{text-align:center;font-size:.87rem;color:var(--muted)}
+.auth-back:hover{color:var(--primary)}
+.auth-tabs{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.25rem;gap:.25rem}
+.auth-tabs button{flex:1;border:0;background:transparent;font-family:inherit;font-weight:700;padding:.6rem;border-radius:9px;cursor:pointer;color:var(--muted)}
+.auth-tabs button.active{background:var(--card);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+@media(max-width:720px){
+  .auth-card{grid-template-columns:1fr;max-width:440px}
+  .auth-side{padding:1.6rem}
+  .auth-side ul{display:none}
+  .auth-form{padding:1.6rem 1.3rem}
+}

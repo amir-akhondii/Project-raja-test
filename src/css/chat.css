@@ -1,0 +1,32 @@
+/* chat.css — ویجت گفتگوی پشتیبانی */
+#chatBtn{position:fixed;bottom:18px;right:18px;width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;z-index:95;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;font-size:1.5rem;display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(91,77,246,.45);transition:.2s}
+#chatBtn:hover{transform:scale(1.07)}
+#chatBtn::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--primary);animation:ring 2s infinite}
+@keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.5);opacity:0}}
+#chatBtn .chat-badge{position:absolute;top:-4px;left:-4px;background:var(--red);color:#fff;font-size:.7rem;min-width:20px;height:20px;border-radius:99px;display:grid;place-items:center;font-weight:700}
+#chatPanel{position:fixed;bottom:86px;right:18px;width:min(360px,calc(100vw - 2rem));height:480px;max-height:70dvh;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);z-index:95;display:none;flex-direction:column;overflow:hidden}
+#chatPanel.open{display:flex;animation:pop .25s}
+@keyframes pop{from{transform:translateY(14px);opacity:0}}
+.chat-head{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;padding:.85rem 1rem;display:flex;align-items:center;gap:.65rem}
+.chat-head .dot{width:11px;height:11px;border-radius:50%;background:#00e68a;border:2px solid #fff;flex-shrink:0}
+.chat-head b{display:block;font-size:.95rem}
+.chat-head small{opacity:.85;font-size:.75rem}
+.chat-head button{margin-right:auto;background:rgba(255,255,255,.2);border:0;color:#fff;width:32px;height:32px;border-radius:9px;cursor:pointer}
+#chatBody{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.55rem;background:var(--bg)}
+.msg{max-width:82%;padding:.55rem .85rem;border-radius:14px;font-size:.87rem;line-height:1.9}
+.msg.bot{background:var(--card);border:1px solid var(--line);border-start-start-radius:4px;align-self:flex-start}
+.msg.me{background:var(--primary);color:#fff;border-start-end-radius:4px;align-self:flex-end}
+.msg.typing{display:flex;gap:4px;padding:.8rem 1rem}
+.msg.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+.msg.typing span:nth-child(2){animation-delay:.2s}.msg.typing span:nth-child(3){animation-delay:.4s}
+@keyframes blink{50%{opacity:.25}}
+.quick{display:flex;gap:.4rem;flex-wrap:wrap;padding:.55rem .9rem 0;background:var(--bg)}
+.quick button{border:1px solid var(--line);background:var(--card);color:var(--primary);font-family:inherit;font-size:.78rem;font-weight:700;padding:.35rem .8rem;border-radius:99px;cursor:pointer}
+.chat-form{display:flex;gap:.5rem;padding:.7rem .9rem;background:var(--card);border-top:1px solid var(--line)}
+.chat-form input{flex:1;padding:.65rem .9rem;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:inherit;outline:0;min-width:0}
+.chat-form input:focus{border-color:var(--primary)}
+.chat-form button{width:42px;height:42px;border-radius:11px;border:0;background:var(--primary);color:#fff;cursor:pointer;flex-shrink:0}
+.toast-wrap{bottom:92px !important}
+@media(max-width:480px){#chatPanel{bottom:84px}}
